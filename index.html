@@ -1,21 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Syon Sajith",
-  "url": "https://syonsajith.github.io",
-  "logo": "https://syonsajith.github.io/logo.png",
-  "image": "https://syonsajith.github.io/logo.png",
-  "sameAs": [
-    "https://www.youtube.com/@syonsajith2012",
-    "https://www.linkedin.com/in/sajith-sayon"
-  ]
-}
-</script>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Syon Sajith</title>
@@ -23,34 +8,133 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- SEO -->
-  <meta name="description" content="Syon Sajith — Frontend Developer, Web Developer, Content Creator. Portfolio and contact." />
-  <meta name="author" content="Syon Sajith" />
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Dark / Light mode basics */
+    body.light {
+      --bg: #ffffff;
+      --text: #111;
+      --accent: #ffcc00;
+    }
+    body.dark {
+      --bg: #111;
+      --text: #f5f5f5;
+      --accent: #ff004c;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: var(--bg);
+      box-shadow: 0 2px 5px rgba(0,0,0,.1);
+    }
+    .theme-toggle {
+      cursor: pointer;
+      padding: .4rem .8rem;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+    }
+
+    /* Skills section */
+    .skills {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .skill-bar {
+      margin: 1rem auto;
+      max-width: 500px;
+      background: #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 20px;
+      background: var(--accent);
+      width: 0;
+      transition: width 2s ease;
+    }
+
+    /* Projects */
+    .projects {
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--bg);
+      border: 1px solid #3333;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,.1);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    }
+    .project-card h3 {
+      margin-top: 0;
+    }
+
+    /* Profile image with proper square & soft rounded corners */
+    .hero-right img {
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 0 25px rgba(0, 150, 255, 0.6);
+    }
+
+    /* Social icons */
+    .socials {
+      margin-top: 20px;
+    }
+    .social-icon {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: var(--text);
+      transition: color 0.3s;
+    }
+    .social-icon:hover {
+      color: var(--accent);
+    }
+  </style>
 </head>
-<body>
+<body class="dark">
   <header class="site-header">
     <div class="logo">Syon.</div>
     <nav class="top-nav">
       <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
   </header>
 
   <main>
     <!-- HERO -->
     <section id="home" class="hero">
-      <!-- LEFT: text + roles + buttons + socials -->
       <div class="hero-left">
         <h1 class="hero-title">Hi, I'm <span class="name">Syon Sajith</span></h1>
-
-        <!-- Roles list (Orbitron font) -->
-        <ul class="roles" aria-label="roles list">
+        <ul class="roles">
           <li>Frontend Developer</li>
           <li>Web Developer</li>
           <li>Programmer</li>
@@ -59,65 +143,52 @@
           <li>Gamer</li>
           <li>Content Creator</li>
         </ul>
-
-        <!-- Intro paragraph (pure white) -->
         <p class="intro">
           I am Syon. I am studying in 8th standard at [INDIAN PUBLIC SCHOOL]. I am interested in web
           designing, programming, editing, gaming, content creation and web development. My dream is to
           be a famous content creator and grow the gaming community across the world. I also enjoy
-          electronics and learning AI. I build modern and responsive web applications with passion.
+          electronics and learning AI.
         </p>
-
-        <!-- CTA buttons -->
         <div class="cta">
           <a class="btn primary" href="#contact">LIKE ME</a>
-
-          <!-- Let's Talk opens Gmail compose directly (replace email below) -->
-          <a class="btn outline" href="https://mail.google.com/mail/?view=cm&fs=1&to=syonsajith1@gmail.com" target="_blank" rel="noopener noreferrer">
-            Let's Talk
-          </a>
+          <a class="btn outline" href="https://mail.google.com/mail/?view=cm&fs=1&to=syonsajith1@gmail.com" target="_blank">Let's Talk</a>
         </div>
-
-        <!-- Social icons (replace # with your real links) -->
-        <div class="socials" aria-label="social links">
-          <!-- YouTube -->
-          <a class="social" href="https://www.youtube.com/@cozgaming1" target="_blank" rel="noopener noreferrer" title="YouTube">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M10 15l5.19-3L10 9v6zM23.5 6.2C23.3 5.5 22.7 4.9 22 4.7 20.5 4.2 12 4.2 12 4.2s-8.5 0-10 .5c-.7.2-1.3.8-1.5 1.5C0 8 0 12 0 12s0 4 0.5 5.8c.2.7.8 1.3 1.5 1.5 1.5.5 10 .5 10 .5s8.5 0 10-.5c.7-.2 1.3-.8 1.5-1.5.5-1.8.5-5.8.5-5.8s0-4-.5-5.8z"/></svg>
-          </a>
-
-          <!-- Gmail (opens Gmail compose with your email) -->
-          <a class="social" href="https://mail.google.com/mail/?view=cm&fs=1&to=syonsajith1@gmail.com" target="_blank" rel="noopener noreferrer" title="Email">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z"/></svg>
-          </a>
-
-          <!-- Instagram -->
-          <a class="social" href="https://www.instagram.com/s.eeeeyy" target="_blank" rel="noopener noreferrer" title="Instagram">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.3 2.4.5.6.3.9.6 1.3 1 .4.4.7.7 1 1.3.2.5.4 1.2.5 2.4.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.3 1.9-.5 2.4-.3.6-.6.9-1 1.3-.4.4-.7.7-1.3 1-.5.2-1.2.4-2.4.5-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.3-2.4-.5-.6-.3-.9-.6-1.3-1-.4-.4-.7-.7-1-1.3-.2-.5-.4-1.2-.5-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.3-1.9.5-2.4.3-.6.6-.9 1-1.3.4-.4.7-.7 1.3-1 .5-.2 1.2-.4 2.4-.5C8.4 2.2 8.8 2.2 12 2.2m0-2.2C8.7 0 8.3 0 7.1.1 5.9.2 5 .4 4.2.7 3.3 1 2.6 1.6 1.8 2.4.9 3.3.3 4 0 4.9c-.3.8-.5 1.7-.6 2.9C-1 9.7-1 10.1-1 13.4s0 3.8.1 5c.1 1.2.3 2.1.6 2.9.3.9.9 1.6 1.8 2.4.8.8 1.5 1.4 2.4 1.8.8.3 1.7.5 2.9.6 1.2.1 1.6.1 4.9.1s3.8 0 5-.1c1.2-.1 2.1-.3 2.9-.6.9-.3 1.6-.9 2.4-1.8.8-.8 1.4-1.5 1.8-2.4.3-.8.5-1.7.6-2.9.1-1.2.1-1.6.1-4.9s0-3.8-.1-5c-.1-1.2-.3-2.1-.6-2.9-.3-.9-.9-1.6-1.8-2.4-.8-.8-1.5-1.4-2.4-1.8C18.1.4 17.2.2 16 .1 14.8 0 14.4 0 12 0z"/></svg>
-          </a>
-
-          <!-- LinkedIn -->
-          <a class="social" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 4.98 2.4 4.98 3.5zM.5 8h4.99V24H.5zM8.5 8h4.78v2.15h.07c.66-1.25 2.28-2.56 4.69-2.56C22 7.59 24 9.5 24 13.27V24h-5V14.2c0-2.36-.04-5.4-3.29-5.4-3.29 0-3.79 2.57-3.79 5.22V24H8.5z"/></svg>
-          </a>
-
-          <!-- GitHub -->
-          <a class="social" href="https://github.com/syonsajith" target="_blank" rel="noopener noreferrer" title="GitHub">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5C5.7.5.8 5.3.8 11.6c0 4.6 3 8.5 7.1 9.9.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.2-3.5-1.2-.4-1-.9-1.3-.9-1.3-.7-.5 0-.5 0-.5.8.1 1.3.8 1.3.8.7 1.3 1.9.9 2.4.7.1-.5.3-.9.5-1.1-2.3-.3-4.7-1.2-4.7-5.4 0-1.2.4-2.2 1-3-.1-.3-.4-1.4.1-2.9 0 0 .8-.2 2.8 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c2-.1 2.8-1 2.8-1 .5 1.5.2 2.6.1 2.9.6.8 1 1.8 1 3 0 4.2-2.4 5-4.7 5.3.3.3.6.8.6 1.6v2.3c0 .4.2.6.7.5 4.1-1.4 7.1-5.3 7.1-9.9C23.2 5.3 18.3.5 12 .5z"/></svg>
-          </a>
-        </div>
-
-        <!-- Quick contact line -->
-        <div class="quick-contact">
-          <a href="mail:syonsajith1@gmail.com">syonsajith1@gmail.com</a> • <a href="tel:+919846234898">+91 9846234898</a>
+        <!-- Socials -->
+        <div class="socials">
+          <a href="https://www.youtube.com/@cozgaming1" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=syonsajith1@gmail.com" target="_blank" class="social-icon"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.instagram.com/s.eeeeyy" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/sajith-sayon" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/syonsajith" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
         </div>
       </div>
-
-      <!-- RIGHT: photo -->
       <div class="hero-right">
-        <div class="photo-wrap">
-          <!-- Make sure this file (syon.jpg) is uploaded to GitHub exactly with this lower-case name -->
-          <img src="syon.jpg" alt="Syon Sajith">
-        </div>
+        <img src="syon.jpg" alt="Syon Sajith">
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills" class="skills">
+      <h2>My Skills</h2>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:90%">HTML / CSS</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:75%">JavaScript</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:70%">Editing</div></div>
+      <div class="skill-bar"><div class="skill-bar-fill" style="width:60%">Gaming</div></div>
+    </section>
+
+    <!-- Projects section -->
+    <section id="projects" class="projects">
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>My personal portfolio with dark mode, animations, and responsive design.</p>
+      </div>
+      <div class="project-card">
+        <h3>Game Content</h3>
+        <p>Content creation project to grow gaming community worldwide.</p>
+      </div>
+      <div class="project-card">
+        <h3>Mini Robot</h3>
+        <p>Arduino Nano robot with sensors and Bluetooth control.</p>
       </div>
     </section>
   </main>
@@ -134,10 +205,32 @@
         <p>
           <a href="https://www.youtube.com/@cozgaming1" target="_blank">YouTube</a> •
           <a href="https://www.instagram.com/s.eeeeyy" target="_blank">Instagram</a> •
-          <a href="https://github.com/YOUR_GITHUB" target="_blank">GitHub</a>
+          <a href="https://github.com/syonsajith" target="_blank">GitHub</a>
         </p>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Dark/Light mode toggle
+    const toggleBtn = document.getElementById("themeToggle");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      document.body.classList.toggle("light");
+      toggleBtn.textContent =
+        document.body.classList.contains("dark") ? "🌙 Dark" : "☀️ Light";
+    });
+
+    // Animate skills when visible
+    const skills = document.querySelectorAll(".skill-bar-fill");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute("style").split(":")[1];
+        }
+      });
+    }, { threshold: 0.5 });
+    skills.forEach(s => observer.observe(s));
+  </script>
 </body>
 </html>
